@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: rgba(236, 240, 241, 0.95);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        #title h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        header ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        header ul a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        header ul a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #3498db;
+            transition: width 0.3s ease;
+        }
+
+        header ul a:hover::after {
+            width: 100%;
+        }
+
+        main {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 60px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        aside {
+            max-width: 800px;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        aside h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #34495e;
+        }
+
+        aside p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            background: transparent;
+            border: 2px solid #e74c3c;
+            color: #e74c3c;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        button:hover {
+            background: #e74c3c;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+            margin: 10px auto;
+        }
+
+        .projeto-info p {
+    margin-bottom: 1rem; /* Espaçamento entre o parágrafo e o botão */
+}
+
+        
+        .projetos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .projeto-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .projeto-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .projeto-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .projeto-info {
+            padding: 1.5rem;
+        }
+
+        .projeto-info h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        #sobre {
+            background: #f8f9fa;
+        }
+
+        #contato {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+
+        #contato h2,
+        #contato p {
+            color: white;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            font-size: 1.8rem;
+            color: white;
+            margin: 0 15px;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            aside h2 {
+                font-size: 2rem;
+            }
+                    #habilidades {
+            background: #f5f7fa;
+            padding: 80px 20px;
+        }
+
+        #habilidades h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        #habilidades h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+            margin: 10px auto;
+        }
+
+        #habilidades ul {
+            list-style: none;
+            max-width: 600px;
+            margin: auto;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            text-align: center;
+        }
+
+        #habilidades li {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="title">
+            <h1>Meu Portfólio</h1>
+        </div>
+        <ul>
+            <a href="#inicio"><li>Início</li></a>
+            <a href="#projetos"><li>Projetos</li></a>
+            <a href="#sobre"><li>Sobre mim</li></a>
+            <a href="#contato"><li>Contato</li></a>
+        </ul>
+    </header>
+
+    <main id="inicio">
+        <aside>
+            <h2>Transformando</h2>
+            <h2>ideias em realidade</h2>
+            <p>
+                Minha jornada no desenvolvimento web é movida pela busca constante de aprendizado e pelo desafio de criar experiências digitais que façam a diferença. Acredito que cada linha de código é uma oportunidade de inovar e cada projeto é uma chance de impactar positivamente a vida dos usuários.
+            </p>
+            <button onclick="location.href='#projetos'">Ficou curioso?</button>
+        </aside>
+    </main>
+
+    <section id="sobre">
+        <div class="container">
+            <h2>Sobre Mim</h2>
+            <p>Olá! Me chamo Melissa Gabriele, sou um desenvolvedora web apaixonado por tecnologia e inovação, atualmente cursando Análise e Desenvolvimento de Sistemas na UNIFACISA. Estou finalizando o segundo período do curso, onde venho construindo uma base sólida em programação e desenvolvimento de sistemas.</p>
+        </div>
+    </section>
+
+    <section id="projetos">
+    <div class="container">
+        <h2>Meus Projetos</h2>
+        <div class="projetos-grid">
+
+            <div class="projeto-card">
+                <img src="imgs/projeto1_1.png" alt="Projeto 1: Livro Interativo" class="projeto-img">
+                <div class="projeto-info">
+                    <h3>Projeto 1: Livro Interativo</h3>
+                    <p>Uma plataforma lúdica que ensina crianças a ler por meio de histórias bíblicas, unindo aprendizado e valores cristãos de forma interativa e inspiradora.</p>
+                    <button onclick="window.open('https://github.com/soutomel/Livro-Interativo', '_blank')">Acessar Projeto</button>
+                </div>
+            </div>
+
+            
+
+            <div class="projeto-card">
+                <img src="imgs/projeto3.png" alt="GhostSpy" class="projeto-img">
+                <div class="projeto-info">
+                    <h3>Projeto 2: GhostSpy</h3>
+                    <p>Sistema de rastreamento e monitoramento de dispositivos, desenvolvido com foco em segurança da informação e análise comportamental.</p>
+                    <button onclick="window.open('https://github.com/soutomel/GhostSpy', '_blank')">Ver no GitHub</button>
+                </div>
+            </div>
+
+            <div class="projeto-card">
+                <img src="imgs/projeto4.png" alt="Mini Caixa" class="projeto-img">
+                <div class="projeto-info">
+                    <h3>Projeto 3: Mini Caixa</h3>
+                    <p>Simulador de controle de caixa com interface em Python, ideal para pequenos comércios, utilizando conceitos de entrada, saída e relatório.</p>
+                    <button onclick="window.open('https://github.com/soutomel/MiniCaixa', '_blank')">Ver no GitHub</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    
+<section id="habilidades">
+    <div class="container">
+        <h2>Habilidades Técnicas</h2>
+        <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; padding: 0; list-style: none; text-align: center;">
+            <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 10px rgba(0,0,0,0.05); font-weight: 500;">Python</li>
+            <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 10px rgba(0,0,0,0.05); font-weight: 500;">Java</li>
+            <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 10px rgba(0,0,0,0.05); font-weight: 500;">JavaScript</li>
+            <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 10px rgba(0,0,0,0.05); font-weight: 500;">HTML5 & CSS3</li>
+            <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 10px rgba(0,0,0,0.05); font-weight: 500;">SQL & MySQL</li>
+            <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 10px rgba(0,0,0,0.05); font-weight: 500;">Git & GitHub</li>
+            <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 10px rgba(0,0,0,0.05); font-weight: 500;">Espanhol (intermediário)</li>
+            <li style="background: white; padding: 15px; border-radius: 10px; box-shadow: 0 5px 10px rgba(0,0,0,0.05); font-weight: 500;">Inglês (básico)</li>
+        </ul>
+    </div>
+</section>
+
+
+    <section id="contato">
+        <div class="container">
+            <h2>Contato</h2>
+            <p>Vamos trabalhar juntos? Entre em contato:</p>
+            <div class="social-links">
+                <a href="https://github.com/soutomel"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mel-soutocg-578325302/"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
